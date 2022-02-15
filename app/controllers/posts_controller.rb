@@ -17,4 +17,8 @@ class PostsController < ApplicationController
     @current_user = User.find_by(id: params[:id])
     @current_user.update(PostsCounter: Post.where(author_id: @current_user.id).count)
   end
+
+  def three_recent_posts
+    @recent_posts = Post.limit(3).where(author_id: params[:id]).order(created_at: :desc)
+  end
 end
