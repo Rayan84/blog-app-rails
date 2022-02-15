@@ -1,8 +1,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: postgres
-  password: xxxxx #<-- which you have defiend while installing postgresql
+  username: 
+  password:  #<-- which you have defiend while installing postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
