@@ -3866,3 +3866,29 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 83ms (Views: 21.6ms | ActiveRecord: 7.7ms | Allocations: 20060)
 
 
+Started GET "/" for 127.0.0.1 at 2022-02-15 21:18:18 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NoMethodError (undefined method `has_many' for UsersHelper:Module):
+  
+app/helpers/users_helper.rb:2:in `<module:UsersHelper>'
+app/helpers/users_helper.rb:1:in `<main>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2022-02-15 21:19:19 +0100
+  
+NoMethodError (undefined method `has_many' for UsersHelper:Module):
+  
+app/helpers/users_helper.rb:2:in `<module:UsersHelper>'
+app/helpers/users_helper.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2022-02-15 21:21:17 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 367)
+  Rendered layout layouts/application.html.erb (Duration: 122.0ms | Allocations: 39892)
+Completed 200 OK in 139ms (Views: 126.0ms | ActiveRecord: 0.0ms | Allocations: 45126)
+
+
