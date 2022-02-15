@@ -1,2 +1,14 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @current_user.name %></h1>
+<p><%= @current_user.PostsCounter%></p>
+<h3>Bio:</h3>
+<p><%= @current_user.bio %></p>
+<% @recent_posts.each do |post| %>
+  <h3><%= post.title %></h3>
+  <p><%= post.text %>
+  <p><%= post.created_at %>
+
+  <p>Comments: <%= @comments.where(posts_id: post.id).count %></p>
+  <br>
+  <br>
+  <hr>
+<% end %>
