@@ -6,8 +6,8 @@ class PostsController < ApplicationController
     @comments = Comment.all
     @likes = Like.all
     Post.all.each do |post|
-      post.update(CommentsCounter: Comment.where(posts_id: post.id).count)
-      post.update(likes_counter: Like.where(posts_id: post.id).count)
+      post.update(CommentsCounter: Comment.where(post_id: post.id).count)
+      post.update(likes_counter: Like.where(post_id: post.id).count)
     end
   end
 
