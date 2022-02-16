@@ -20913,3 +20913,24 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 239ms (Views: 55.6ms | ActiveRecord: 83.1ms | Allocations: 43855)
 
 
+Started GET "/users/1/posts/4" for 127.0.0.1 at 2022-02-16 10:43:40 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 AND "posts"."id" = $2 LIMIT $3[0m  [["author_id", 1], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:16:in `show'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."posts_id" = $1[0m  [["posts_id", 4]]
+  ↳ app/views/posts/show.html.erb:9
+  [1m[36mLike Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."posts_id" = $1[0m  [["posts_id", 4]]
+  ↳ app/views/posts/show.html.erb:9
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC[0m
+  ↳ app/views/posts/show.html.erb:18
+  Rendered partials/_comment.html.erb (Duration: 33.4ms | Allocations: 7298)
+  Rendered posts/show.html.erb within layouts/application (Duration: 45.9ms | Allocations: 9479)
+  Rendered layout layouts/application.html.erb (Duration: 49.7ms | Allocations: 11574)
+Completed 200 OK in 61ms (Views: 49.5ms | ActiveRecord: 2.4ms | Allocations: 13915)
+
+

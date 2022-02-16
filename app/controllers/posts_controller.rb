@@ -18,6 +18,4 @@ class PostsController < ApplicationController
     @users = User.all
     @likes = Like.all
   end
-
-
 end
