@@ -28762,3 +28762,1625 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 156ms (Views: 35.5ms | ActiveRecord: 34.0ms | Allocations: 47243)
 
 
+Started POST "/users/1/posts" for 127.0.0.1 at 2022-02-16 23:09:57 +0100
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for PostsController):
+  
+actionpack (7.0.1) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.1) lib/action_dispatch/routing/route_set.rb:850:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.1) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (7.0.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/cookies.rb:693:in `call'
+activerecord (7.0.1) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.1) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.1) lib/puma/configuration.rb:252:in `call'
+puma (5.6.1) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.1) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.1) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.1) lib/puma/server.rb:441:in `process_client'
+puma (5.6.1) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/users/1/posts" for 127.0.0.1 at 2022-02-16 23:09:57 +0100
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:8:in `index'
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.8ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.6ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (3.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (1.3ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 3]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 3]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/views/posts/index.html.erb:8
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mComment Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (2.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mComment Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  Rendered partials/_post.html.erb (Duration: 2.7ms | Allocations: 1491)
+  Rendered posts/index.html.erb within layouts/application (Duration: 60.9ms | Allocations: 13188)
+  Rendered layout layouts/application.html.erb (Duration: 65.3ms | Allocations: 15280)
+Completed 200 OK in 233ms (Views: 53.9ms | ActiveRecord: 58.5ms | Allocations: 47201)
+
+
+Started POST "/users/1/posts" for 127.0.0.1 at 2022-02-16 23:10:00 +0100
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for PostsController):
+  
+actionpack (7.0.1) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.1) lib/action_dispatch/routing/route_set.rb:850:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.1) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (7.0.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/cookies.rb:693:in `call'
+activerecord (7.0.1) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.1) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.1) lib/puma/configuration.rb:252:in `call'
+puma (5.6.1) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.1) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.1) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.1) lib/puma/server.rb:441:in `process_client'
+puma (5.6.1) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/users/1/posts" for 127.0.0.1 at 2022-02-16 23:10:00 +0100
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:8:in `index'
+  [1m[36mComment Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.7ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 3]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 3]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/views/posts/index.html.erb:8
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  Rendered partials/_post.html.erb (Duration: 2.2ms | Allocations: 1489)
+  Rendered posts/index.html.erb within layouts/application (Duration: 44.6ms | Allocations: 13187)
+  Rendered layout layouts/application.html.erb (Duration: 49.2ms | Allocations: 15297)
+Completed 200 OK in 178ms (Views: 44.5ms | ActiveRecord: 38.5ms | Allocations: 47219)
+
+
+Started GET "/users/1/posts/5" for 127.0.0.1 at 2022-02-16 23:13:28 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 AND "posts"."id" = $2 LIMIT $3[0m  [["author_id", 1], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:16:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/views/posts/show.html.erb:9
+  [1m[36mLike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/views/posts/show.html.erb:9
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC[0m
+  ↳ app/views/posts/show.html.erb:18
+  Rendered partials/_comment.html.erb (Duration: 7.1ms | Allocations: 4511)
+  Rendered posts/show.html.erb within layouts/application (Duration: 21.8ms | Allocations: 8255)
+  Rendered layout layouts/application.html.erb (Duration: 34.4ms | Allocations: 21539)
+Completed 200 OK in 76ms (Views: 31.7ms | ActiveRecord: 12.0ms | Allocations: 39246)
+
+
+Started POST "/users/1/posts" for 127.0.0.1 at 2022-02-16 23:13:41 +0100
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title"=>"sdaaa", "text"=>"ssss", "commit"=>"Create Post", "user_id"=>"1"}
+Redirected to http://127.0.0.1:3000/users/1/posts
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:29:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:29:in `create'
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "CommentsCounter", "created_at", "updated_at", "author_id", "likes_counter") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "sdaaa"], ["text", "ssss"], ["CommentsCounter", nil], ["created_at", "2022-02-16 22:13:41.738304"], ["updated_at", "2022-02-16 22:13:41.738304"], ["author_id", 1], ["likes_counter", nil]]
+  ↳ app/controllers/posts_controller.rb:29:in `create'
+  [1m[36mUser Update All (0.6ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:29:in `create'
+Completed 302 Found in 18ms (ActiveRecord: 3.4ms | Allocations: 5707)
+
+
+Started GET "/users/1/posts" for 127.0.0.1 at 2022-02-16 23:13:41 +0100
+Processing by PostsController#index as TURBO_STREAM
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:8:in `index'
+  [1m[36mComment Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.6ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 3]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 3]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mPost Update (0.4ms)[0m  [1m[33mUPDATE "posts" SET "CommentsCounter" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["CommentsCounter", 0], ["updated_at", "2022-02-16 22:13:41.892236"], ["id", 7]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mPost Update (0.4ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = $1, "likes_counter" = $2 WHERE "posts"."id" = $3[0m  [["updated_at", "2022-02-16 22:13:41.901875"], ["likes_counter", 0], ["id", 7]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mUser Update All (0.3ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/views/posts/index.html.erb:8
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  Rendered partials/_post.html.erb (Duration: 2.7ms | Allocations: 2001)
+  Rendered posts/index.html.erb within layouts/application (Duration: 50.3ms | Allocations: 15483)
+  Rendered layout layouts/application.html.erb (Duration: 54.0ms | Allocations: 17575)
+Completed 200 OK in 207ms (Views: 48.1ms | ActiveRecord: 38.8ms | Allocations: 56104)
+
+
+Started POST "/users/1/posts" for 127.0.0.1 at 2022-02-16 23:13:53 +0100
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title"=>"22222222222222222", "text"=>"22222222222222222222222", "commit"=>"Create Post", "user_id"=>"1"}
+Redirected to http://127.0.0.1:3000/users/1/posts
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:29:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:29:in `create'
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "CommentsCounter", "created_at", "updated_at", "author_id", "likes_counter") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "22222222222222222"], ["text", "22222222222222222222222"], ["CommentsCounter", nil], ["created_at", "2022-02-16 22:13:53.024225"], ["updated_at", "2022-02-16 22:13:53.024225"], ["author_id", 1], ["likes_counter", nil]]
+  ↳ app/controllers/posts_controller.rb:29:in `create'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:29:in `create'
+Completed 302 Found in 14ms (ActiveRecord: 2.5ms | Allocations: 3639)
+
+
+Started GET "/users/1/posts" for 127.0.0.1 at 2022-02-16 23:13:53 +0100
+Processing by PostsController#index as TURBO_STREAM
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:8:in `index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.3ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.3ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 3]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 3]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mPost Update (0.4ms)[0m  [1m[33mUPDATE "posts" SET "CommentsCounter" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["CommentsCounter", 0], ["updated_at", "2022-02-16 22:13:53.183597"], ["id", 8]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mPost Update (0.4ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = $1, "likes_counter" = $2 WHERE "posts"."id" = $3[0m  [["updated_at", "2022-02-16 22:13:53.193141"], ["likes_counter", 0], ["id", 8]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/views/posts/index.html.erb:8
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  Rendered partials/_post.html.erb (Duration: 3.3ms | Allocations: 1504)
+  Rendered posts/index.html.erb within layouts/application (Duration: 66.0ms | Allocations: 16621)
+  Rendered layout layouts/application.html.erb (Duration: 71.3ms | Allocations: 18731)
+Completed 200 OK in 232ms (Views: 64.9ms | ActiveRecord: 42.2ms | Allocations: 62227)
+
+
+Started GET "/users/1/posts/8" for 127.0.0.1 at 2022-02-16 23:14:26 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"8"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 AND "posts"."id" = $2 LIMIT $3[0m  [["author_id", 1], ["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:16:in `show'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:9
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:9
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC[0m
+  ↳ app/views/posts/show.html.erb:18
+  Rendered partials/_comment.html.erb (Duration: 8.7ms | Allocations: 760)
+  Rendered posts/show.html.erb within layouts/application (Duration: 21.9ms | Allocations: 2513)
+  Rendered layout layouts/application.html.erb (Duration: 27.6ms | Allocations: 4605)
+Completed 200 OK in 36ms (Views: 27.0ms | ActiveRecord: 3.3ms | Allocations: 5946)
+
+
+Started POST "/posts/8/comments" for 127.0.0.1 at 2022-02-16 23:15:20 +0100
+Processing by CommentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "comment"=>{"text"=>"3333333333333333"}, "commit"=>"Add Comment", "post_id"=>"8"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+Redirected to http://127.0.0.1:3000/users/1/posts/8
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:9:in `create'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:9:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:9:in `create'
+  [1m[36mComment Create (6.2ms)[0m  [1m[32mINSERT INTO "comments" ("text", "created_at", "updated_at", "author_id", "post_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "3333333333333333"], ["created_at", "2022-02-16 22:15:20.694795"], ["updated_at", "2022-02-16 22:15:20.694795"], ["author_id", 1], ["post_id", 8]]
+  ↳ app/controllers/comments_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:9:in `create'
+Completed 302 Found in 62ms (ActiveRecord: 19.6ms | Allocations: 20603)
+
+
+Started GET "/users/1/posts/8" for 127.0.0.1 at 2022-02-16 23:15:20 +0100
+Processing by PostsController#show as TURBO_STREAM
+  Parameters: {"user_id"=>"1", "id"=>"8"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 AND "posts"."id" = $2 LIMIT $3[0m  [["author_id", 1], ["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:16:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:9
+  [1m[36mLike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:9
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC[0m
+  ↳ app/views/posts/show.html.erb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/posts/show.html.erb:21
+  Rendered partials/_comment.html.erb (Duration: 2.8ms | Allocations: 1518)
+  Rendered posts/show.html.erb within layouts/application (Duration: 13.6ms | Allocations: 4336)
+  Rendered layout layouts/application.html.erb (Duration: 27.2ms | Allocations: 17636)
+Completed 200 OK in 40ms (Views: 26.0ms | ActiveRecord: 3.2ms | Allocations: 23005)
+
+
+Started GET "/users/2/posts/8" for 127.0.0.1 at 2022-02-16 23:15:33 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"8"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 AND "posts"."id" = $2 LIMIT $3[0m  [["author_id", 2], ["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:16:in `show'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1421)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1499)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.9ms | Allocations: 2809)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    2: <div class="page-container">
+    3:   <div class="display-flex justify-content-space-between align-items-center">
+    4:     <div>
+    5:       <h2><%= @post.title %> By: <%= @user.name %></h2>
+    6:     </div>
+    7:     <div>
+    8:       <p>
+  
+app/views/posts/show.html.erb:5
+Started GET "/users/2/posts/" for 127.0.0.1 at 2022-02-16 23:15:38 +0100
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:8:in `index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.8ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (1.2ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 3]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 3]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.3ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mPost Update (0.4ms)[0m  [1m[33mUPDATE "posts" SET "CommentsCounter" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["CommentsCounter", 1], ["updated_at", "2022-02-16 22:15:38.946290"], ["id", 8]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/views/posts/index.html.erb:8
+  Rendered partials/_post.html.erb (Duration: 2.9ms | Allocations: 1949)
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2572)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 4682)
+Completed 200 OK in 188ms (Views: 10.4ms | ActiveRecord: 41.2ms | Allocations: 48892)
+
+
+Started POST "/users/2/posts" for 127.0.0.1 at 2022-02-16 23:15:56 +0100
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title"=>"First Post", "text"=>"Lilly's first post", "commit"=>"Create Post", "user_id"=>"2"}
+Redirected to http://127.0.0.1:3000/users/2/posts/
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:29:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:29:in `create'
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "CommentsCounter", "created_at", "updated_at", "author_id", "likes_counter") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "First Post"], ["text", "Lilly's first post"], ["CommentsCounter", nil], ["created_at", "2022-02-16 22:15:56.860727"], ["updated_at", "2022-02-16 22:15:56.860727"], ["author_id", 2], ["likes_counter", nil]]
+  ↳ app/controllers/posts_controller.rb:29:in `create'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 2]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:29:in `create'
+Completed 302 Found in 14ms (ActiveRecord: 2.7ms | Allocations: 3710)
+
+
+Started GET "/users/2/posts/" for 127.0.0.1 at 2022-02-16 23:15:56 +0100
+Processing by PostsController#index as TURBO_STREAM
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:8:in `index'
+  [1m[36mComment Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 3]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 3]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.3ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mPost Update (0.4ms)[0m  [1m[33mUPDATE "posts" SET "CommentsCounter" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["CommentsCounter", 0], ["updated_at", "2022-02-16 22:15:57.038111"], ["id", 9]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 2]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 9]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mPost Update (0.4ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = $1, "likes_counter" = $2 WHERE "posts"."id" = $3[0m  [["updated_at", "2022-02-16 22:15:57.046682"], ["likes_counter", 0], ["id", 9]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 2]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/views/posts/index.html.erb:8
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 9]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  Rendered partials/_post.html.erb (Duration: 2.1ms | Allocations: 1505)
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.6ms | Allocations: 3962)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 6060)
+Completed 200 OK in 198ms (Views: 19.4ms | ActiveRecord: 41.2ms | Allocations: 54650)
+
+
+Started GET "/users/2/posts/9" for 127.0.0.1 at 2022-02-16 23:16:01 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"9"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 AND "posts"."id" = $2 LIMIT $3[0m  [["author_id", 2], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:16:in `show'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Count (5.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:9
+  [1m[36mLike Count (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:9
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC[0m
+  ↳ app/views/posts/show.html.erb:18
+  Rendered partials/_comment.html.erb (Duration: 3.6ms | Allocations: 763)
+  Rendered posts/show.html.erb within layouts/application (Duration: 17.9ms | Allocations: 2526)
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 4618)
+Completed 200 OK in 31ms (Views: 18.1ms | ActiveRecord: 7.5ms | Allocations: 5959)
+
+
+Started POST "/posts/9/comments" for 127.0.0.1 at 2022-02-16 23:16:06 +0100
+Processing by CommentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "comment"=>{"text"=>"first comment"}, "commit"=>"Add Comment", "post_id"=>"9"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+Redirected to http://127.0.0.1:3000/users/2/posts/9
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:9:in `create'
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:9:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:9:in `create'
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("text", "created_at", "updated_at", "author_id", "post_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "first comment"], ["created_at", "2022-02-16 22:16:06.597352"], ["updated_at", "2022-02-16 22:16:06.597352"], ["author_id", 1], ["post_id", 9]]
+  ↳ app/controllers/comments_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:9:in `create'
+Completed 302 Found in 16ms (ActiveRecord: 2.9ms | Allocations: 4424)
+
+
+Started GET "/users/2/posts/9" for 127.0.0.1 at 2022-02-16 23:16:06 +0100
+Processing by PostsController#show as TURBO_STREAM
+  Parameters: {"user_id"=>"2", "id"=>"9"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 AND "posts"."id" = $2 LIMIT $3[0m  [["author_id", 2], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:16:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:17:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:9
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:9
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC[0m
+  ↳ app/views/posts/show.html.erb:18
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/posts/show.html.erb:21
+  Rendered partials/_comment.html.erb (Duration: 2.2ms | Allocations: 770)
+  Rendered posts/show.html.erb within layouts/application (Duration: 13.3ms | Allocations: 3109)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 5201)
+Completed 200 OK in 23ms (Views: 16.3ms | ActiveRecord: 2.5ms | Allocations: 6545)
+
+
+Started GET "/users/2/posts/" for 127.0.0.1 at 2022-02-16 23:16:10 +0100
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:8:in `index'
+  [1m[36mComment Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.9ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (1.0ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.8ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.9ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.4ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.8ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.6ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (1.7ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 3]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 3]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 7]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 8]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 1]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mPost Update (0.7ms)[0m  [1m[33mUPDATE "posts" SET "CommentsCounter" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["CommentsCounter", 1], ["updated_at", "2022-02-16 22:16:10.415821"], ["id", 9]]
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mUser Update All (0.7ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 2]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:9:in `block in index'
+  [1m[36mLike Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 9]]
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mUser Update All (0.5ms)[0m  [1m[33mUPDATE "users" SET "PostsCounter" = COALESCE("PostsCounter", 0) + $1 WHERE "users"."id" = $2[0m  [["PostsCounter", 1], ["id", 2]]
+  ↳ app/models/post.rb:14:in `post_counter'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/views/posts/index.html.erb:8
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 9]]
+  ↳ app/views/posts/index.html.erb:18
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."created_at" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:21
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:23
+  Rendered partials/_post.html.erb (Duration: 1.7ms | Allocations: 1503)
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.4ms | Allocations: 4461)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 6553)
+Completed 200 OK in 300ms (Views: 15.0ms | ActiveRecord: 70.6ms | Allocations: 54389)
+
+
