@@ -15,8 +15,8 @@
 .post-title-field,
 .post-text-field,
 .see-all-posts-button,
-.post-submit-button  {
-  border: none
+.post-submit-button {
+  border: none;
 }
 
 .see-all-posts-button:hover {
