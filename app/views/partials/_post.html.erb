@@ -1,6 +1,8 @@
-<p>New Post</p>
-<%= form_with model: @post do |form| %>
-  <%= form.text_field :title, placeholder: 'Title' %>
-  <%= form.text_field :text, placeholder: 'Text' %>
-  <%= form.submit "Create Post" %>
-<% end %>
+<div class="new-post-container">
+  <h4>New Post</h4>
+  <%= form_with class: "display-flex flex-direction-column", model: @post do |form| %>
+    <%= form.text_field :title, placeholder: 'Title', class: "post-title-field" %>
+    <%= form.text_field :text, placeholder: 'Text', class: "post-text-field" %>
+    <%= form.submit "Create Post", class: "post-submit-button" %>
+  <% end %>
+</div>
