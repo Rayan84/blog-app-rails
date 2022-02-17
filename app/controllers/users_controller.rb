@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     Post.all.each do |post|
-      post.update(CommentsCounter: Comment.where(post_id: post.id).count)
+      post.update(comments_counter: Comment.where(post_id: post.id).count)
       post.update(likes_counter: Like.where(post_id: post.id).count)
     end
     @total_posts = Post.all.where(author_id: params[:id]).count
