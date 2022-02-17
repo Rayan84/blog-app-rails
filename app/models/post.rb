@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
-  has_many :comments, foreign_key: 'posts_id'
-  has_many :likes, foreign_key: 'posts_id'
+  has_many :comments
+  has_many :likes
   after_save :post_counter
 
   def five_recent_comments
@@ -11,6 +11,6 @@ class Post < ApplicationRecord
   private
 
   def post_counter
-    author.increment!(:PostsCounter)
+    author.increment!(:posts_counter)
   end
 end
