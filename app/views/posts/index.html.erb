@@ -18,6 +18,7 @@
           <span class="align-self-end">Comments: <%= @comments.where(post_id: post.id).count %>, Likes: <%= @likes.where(post_id: post.id).count %></span>
         </p>
         <h4>Comments:</h4>
+          <%= post.five_recent_comments.length %>
           <% post.five_recent_comments.each do |single_comment|%>
           <% if single_comment.post_id == post.id %>
             <% commentor = User.find_by(id: single_comment.author_id) %>
