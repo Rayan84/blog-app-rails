@@ -15,6 +15,9 @@ gem 'sprockets-rails'
 # Use Postgres as the database for Active Record
 gem 'pg'
 
+# Add gem RSpec-rails
+gem 'rspec-rails'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
 
@@ -72,4 +75,9 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+end
+
+
+group :development, :test do
+  gem 'rspec-rails'
 end

@@ -8,3 +8,15 @@ default: &default
 development:
   <<: *default
   database: project_development
+
+
+test:
+  <<: *default
+  database: project_test
+
+production:
+  <<: *default
+  database: project_production
+  # username: username
+  # password: <%= ENV['PROJECT_DATABASE_PASSWORD'] %>
+
