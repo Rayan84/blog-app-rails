@@ -5,13 +5,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    # Post.all.each do |post|
-    #   post.update(comments_counter: Comment.where(post_id: post.id).count)
-    #   post.update(likes_counter: Like.where(post_id: post.id).count)
-    # end
-    @total_posts = Post.all.where(author_id: params[:id]).count
-    @likes = Like.all
-    @comments = Comment.all.order(created_at: :desc)
+    @likes = Like.all.includes(:post_id)
+    @comments = Comment.all.includes(:post_id).order(created_at: :desc)
     @user = User.find_by(id: params[:id])
   end
 end

@@ -1,14 +1,9 @@
 class PostsController < ApplicationController
   def index
-    @params = params
     @user = User.find_by(id: params[:user_id])
     @posts = Post.all.where(author_id: params[:user_id])
-    @comments = Comment.all
-    @likes = Like.all
-    # Post.all.each do |post|
-    #   post.update(comments_counter: Comment.where(post_id: post.id).count)
-    #   post.update(likes_counter: Like.where(post_id: post.id).count)
-    # end
+    @comments = Comment.all.includes(:post_id)
+    @likes = Like.all.includes(:post_id)
   end
 
   def show
@@ -16,7 +11,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(author_id: params[:user_id], id: params[:id])
     @user = User.find_by(id: params[:user_id])
     @users = User.all
-    @likes = Like.all
+    @likes = Like.all.includes(:post_id)
   end
 
   def new
