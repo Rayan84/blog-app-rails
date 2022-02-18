@@ -5,10 +5,10 @@ class PostsController < ApplicationController
     @posts = Post.all.where(author_id: params[:user_id])
     @comments = Comment.all
     @likes = Like.all
-    Post.all.each do |post|
-      post.update(comments_counter: Comment.where(post_id: post.id).count)
-      post.update(likes_counter: Like.where(post_id: post.id).count)
-    end
+    # Post.all.each do |post|
+    #   post.update(comments_counter: Comment.where(post_id: post.id).count)
+    #   post.update(likes_counter: Like.where(post_id: post.id).count)
+    # end
   end
 
   def show
@@ -27,9 +27,9 @@ class PostsController < ApplicationController
     @post = Post.new(author_id: params[:user_id], title: params[:title], text: params[:text])
     redirect_back(fallback_location: root_path)
     flash.alert = if @post.save
-                    'Comment posted...'
+                    'Post created...'
                   else
-                    'Comment failed...'
+                    "Post failed, #{@post.errors.full_messages}"
                   end
   end
 
