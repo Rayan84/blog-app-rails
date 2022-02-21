@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @comments = Comment.all.order(created_at: :desc)
     @post = Post.find_by(author_id: params[:user_id], id: params[:id])
     @user = User.find_by(id: params[:user_id])
-    @users = User.all.includes(:name, :id)
+    @users = User.all
     @likes = Like.all.includes(:post_id)
   end
 
