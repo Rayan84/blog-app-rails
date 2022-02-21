@@ -1,22 +1,17 @@
 class PostsController < ApplicationController
   def index
-    @params = params
     @user = User.find_by(id: params[:user_id])
     @posts = Post.all.where(author_id: params[:user_id])
-    @comments = Comment.all
-    @likes = Like.all
-    Post.all.each do |post|
-      post.update(comments_counter: Comment.where(post_id: post.id).count)
-      post.update(likes_counter: Like.where(post_id: post.id).count)
-    end
+    @comments = Comment.all.includes(:post_id)
+    @likes = Like.all.includes(:post_id)
   end
 
   def show
     @comments = Comment.all.order(created_at: :desc)
     @post = Post.find_by(author_id: params[:user_id], id: params[:id])
     @user = User.find_by(id: params[:user_id])
-    @users = User.all
-    @likes = Like.all
+    @users = User.all.includes(:name, :id)
+    @likes = Like.all.includes(:post_id)
   end
 
   def new
@@ -27,9 +22,9 @@ class PostsController < ApplicationController
     @post = Post.new(author_id: params[:user_id], title: params[:title], text: params[:text])
     redirect_back(fallback_location: root_path)
     flash.alert = if @post.save
-                    'Comment posted...'
+                    'Post created...'
                   else
-                    'Comment failed...'
+                    "Post failed, #{@post.errors.full_messages}"
                   end
   end
 
