@@ -12,6 +12,6 @@ class UsersController < ApplicationController
   def show
     @likes = Like.all.includes(:post_id)
     @comments = Comment.all.includes(:post_id).order(created_at: :desc)
-    @user = User.find_by(id: params[:id])
+    @user = current_user
   end
 end
