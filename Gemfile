@@ -18,9 +18,6 @@ gem 'pg'
 # Add devise gem
 gem 'devise'
 
-# Add gem RSpec-rails
-gem 'rspec-rails'
-
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
 
@@ -70,7 +67,8 @@ group :development, :test do
   # The following gems aid with the nuts and bolts of 
   # interacting with the browser.
   gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
+  # gem 'chromedriver-helper'
 end
 
 group :development do
@@ -86,7 +84,7 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
+  # gem 'capybara'
+  # gem 'selenium-webdriver'
+  # gem 'webdrivers'
 end
