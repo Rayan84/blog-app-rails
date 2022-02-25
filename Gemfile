@@ -64,7 +64,7 @@ group :development, :test do
   # Capybara
   gem 'capybara'
 
-  # The following gems aid with the nuts and bolts of 
+  # The following gems aid with the nuts and bolts of
   # interacting with the browser.
   gem 'selenium-webdriver'
   gem 'webdrivers'
