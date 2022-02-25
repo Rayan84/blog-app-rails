@@ -24,4 +24,13 @@ RSpec.describe 'Login', type: :feature do
     find('input[name="commit"]').click
     expect(page).to have_content("Email is invalid Password is too short (minimum is 6 characters)")
   end
+
+  scenario 'login page' do
+    visit new_user_registration_path
+    fill_in 'user_email', :with => 'abc@abc.com'
+    fill_in 'user_password', :with => 'aaaaaa'
+    fill_in 'user_password_confirmation', :with => 'aaaaaa'
+    find('input[name="commit"]').click
+    current_path.should == "/"
+  end
 end
