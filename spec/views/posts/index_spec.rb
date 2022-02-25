@@ -29,5 +29,10 @@ RSpec.describe 'posts index page', type: :feature do
     expect(page).to have_content('Comments: 1')
     expect(page).to have_content('Likes: 1')
     expect(page).to have_content('Pagination')
+    click_link(post1.title)
+    expect(current_path).to eq "/users/#{user1.id}/posts/#{post1.id}"
+    visit "/users/#{user1.id}/posts"
+    click_link(post2.title)
+    expect(current_path).to eq "/users/#{user1.id}/posts/#{post2.id}"
   end
 end
