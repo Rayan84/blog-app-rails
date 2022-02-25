@@ -31,6 +31,6 @@ RSpec.describe 'Login', type: :feature do
     fill_in 'user_password', :with => 'aaaaaa'
     fill_in 'user_password_confirmation', :with => 'aaaaaa'
     find('input[name="commit"]').click
-    current_path.should == "/"
+    expect(current_path).to eq "/"
   end
 end
