@@ -8,7 +8,6 @@ RSpec.describe 'Users show', type: :feature do
     fill_in 'user_password', :with => 'aaaaaa'
     # fill_in 'user_password_confirmation', :with => 'aaaaaa'
     find('input[name="commit"]').click
-    puts user1.id
     post1 = Post.create(author_id: user1.id, title: 'First post', text: 'This is the first post')
     post2 = Post.create(author_id: user1.id, title: 'Second post', text: 'This is the second post')
     post3 = Post.create(author_id: user1.id, title: 'Third post', text: 'This is the third post')
